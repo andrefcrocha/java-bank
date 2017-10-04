@@ -5,8 +5,6 @@ import java.util.Map;
 
 public class Customer {
 
-    public static final int MIN_SAVINGS_BALANCE = 100;
-
     private Map<Integer, Account> accounts = new HashMap<>();
 
     public void addAccount(Account account) {
@@ -36,7 +34,7 @@ public class Customer {
 
         Account account = accounts.get(id);
 
-        if (account.getAccountType() == AccountType.SAVINGS) {
+        if (account instanceof SavingsAccount) {
             return;
         }
 
@@ -51,12 +49,6 @@ public class Customer {
 
         // if there is no balance in src account do nothing
         if (srcAccount.getBalance() < amount) {
-            return;
-        }
-
-        // if src account is savings, we need to keep a minimum balance
-        if (srcAccount.getAccountType() == AccountType.SAVINGS &&
-                srcAccount.getBalance() < MIN_SAVINGS_BALANCE + amount) {
             return;
         }
 
