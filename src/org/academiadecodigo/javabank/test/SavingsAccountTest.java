@@ -1,4 +1,4 @@
-package org.academiadecodigo.javabank.test;
+/* package org.academiadecodigo.javabank.test;
 
 import org.academiadecodigo.javabank.domain.account.Account;
 import org.academiadecodigo.javabank.domain.account.CheckingAccount;
@@ -37,3 +37,4 @@ public class SavingsAccountTest {
     }
 
 }
+*/

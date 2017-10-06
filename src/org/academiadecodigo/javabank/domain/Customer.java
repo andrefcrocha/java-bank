@@ -9,6 +9,16 @@ import java.util.Map;
 
 public class Customer {
 
+    private int id;
+
+    public Customer(int id){
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     private AccountManager accountManager;
     private Map<Integer, Account> accounts = new HashMap<>();
 

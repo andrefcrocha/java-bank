@@ -10,6 +10,7 @@ public class Bank {
     private AccountManager accountManager;
     private Set<Customer> customers = new HashSet<>();
 
+
     public Bank(AccountManager accountManager) {
         this.accountManager = accountManager;
     }
@@ -28,6 +29,16 @@ public class Bank {
         }
 
         return balance;
+    }
+
+    public Set<Integer> getCustomerIds() {
+
+        Set<Integer> customerIds = new HashSet<>();
+        for (Customer customer: customers) {
+            customerIds.add(customer.getId());
+        }
+
+        return customerIds;
     }
 
 }

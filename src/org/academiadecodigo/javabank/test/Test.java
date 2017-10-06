@@ -1,4 +1,4 @@
-package org.academiadecodigo.javabank.test;
+/*package org.academiadecodigo.javabank.test;
 
 public class Test {
 
@@ -20,3 +20,4 @@ public class Test {
 
 
 }
+*/

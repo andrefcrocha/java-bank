@@ -1,4 +1,4 @@
-package org.academiadecodigo.javabank.test;
+/* package org.academiadecodigo.javabank.test;
 
 import org.academiadecodigo.javabank.domain.Bank;
 import org.academiadecodigo.javabank.domain.Customer;
@@ -40,3 +40,4 @@ public class BankTest {
         return true;
     }
 }
+*/
