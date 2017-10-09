@@ -49,6 +49,15 @@ public class AccountManager {
         accountMap.get(id).debit(amount);
     }
 
+    public Map<Integer, Account> getAccountIds() {
+
+        accountMap = new HashMap<>();
+        for (Map.Entry<Integer, Account> account : accountMap.entrySet()) {
+            account.getValue().getId();
+        }
+        return getAccountIds();
+    }
+
     public void transfer(int srcId, int dstId, double amount) {
 
         Account srcAccount = accountMap.get(srcId);
