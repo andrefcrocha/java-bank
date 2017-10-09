@@ -22,8 +22,14 @@ public class LoginView implements View {
         scanner.setMessage(Messages.CHOOSE_CUSTOMER);
         scanner.setError(Messages.ERROR_INVALID_CUSTOMER);
         return prompt.getUserInput(scanner);
+    }
 
+    public void setLoginController(LoginController loginController) {
+        this.loginController = loginController;
+    }
 
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 
     @Override

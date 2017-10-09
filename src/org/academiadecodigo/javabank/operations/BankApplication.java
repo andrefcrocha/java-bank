@@ -2,41 +2,35 @@ package org.academiadecodigo.javabank.operations;
 
 import org.academiadecodigo.bootcamp.Prompt;
 import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
-import org.academiadecodigo.javabank.operations.BalanceOperation;
-import org.academiadecodigo.javabank.operations.NewAccountOperation;
-import org.academiadecodigo.javabank.operations.Operation;
 import org.academiadecodigo.javabank.operations.transaction.DepositOperation;
 import org.academiadecodigo.javabank.operations.transaction.WithdrawOperation;
 import org.academiadecodigo.javabank.model.Bank;
-import org.academiadecodigo.javabank.view.LoginView;
 import org.academiadecodigo.javabank.view.Messages;
 import org.academiadecodigo.javabank.view.UserOptions;
-
 import java.util.HashMap;
 import java.util.Map;
+import org.academiadecodigo.bootcamp.scanners.integer.IntegerSetInputScanner;
+
 
 public class BankApplication {
 
     private Prompt prompt;
     private MenuInputScanner mainMenu;
     private Map<Integer, Operation> operationsMap;
-    private LoginView login;
-
 
     private Bank bank;
-    private acessingCustomerId;
+    private int acessingCustomerId;
 
     public BankApplication(Bank bank) {
         this.bank = bank;
-        this.login = new LoginView();
         this.prompt = new Prompt(System.in, System.out);
-
     }
 
     public void start() {
 
         mainMenu = buildMainMenu();
-        acessingCustomerId = login.scanCustomerId();
+
+        acessingCustomerId = scanCustomerId();
         operationsMap = buildOperationsMap();
         menuLoop();
 
@@ -52,6 +46,15 @@ public class BankApplication {
 
         operationsMap.get(userChoice).execute();
         menuLoop();
+
+    }
+
+    private int scanCustomerId() {
+
+        IntegerSetInputScanner scanner = new IntegerSetInputScanner(bank.getCustomerIds());
+        scanner.setMessage(Messages.CHOOSE_CUSTOMER);
+        scanner.setError(Messages.ERROR_INVALID_CUSTOMER);
+        return prompt.getUserInput(scanner);
 
     }
 

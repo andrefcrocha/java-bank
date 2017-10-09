@@ -1,9 +1,25 @@
 package org.academiadecodigo.javabank;
 
+import org.academiadecodigo.bootcamp.Prompt;
+import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
+import org.academiadecodigo.javabank.controller.Controller;
+import org.academiadecodigo.javabank.controller.LoginController;
+import org.academiadecodigo.javabank.controller.MenuController;
 import org.academiadecodigo.javabank.model.Bank;
 import org.academiadecodigo.javabank.model.Customer;
+import org.academiadecodigo.javabank.operations.BalanceOperation;
+import org.academiadecodigo.javabank.operations.NewAccountOperation;
+import org.academiadecodigo.javabank.operations.Operation;
 import org.academiadecodigo.javabank.operations.managers.AccountManager;
 import org.academiadecodigo.javabank.operations.BankApplication;
+import org.academiadecodigo.javabank.operations.transaction.DepositOperation;
+import org.academiadecodigo.javabank.operations.transaction.WithdrawOperation;
+import org.academiadecodigo.javabank.view.LoginView;
+import org.academiadecodigo.javabank.view.MenuView;
+import org.academiadecodigo.javabank.view.UserOptions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class App {
 
@@ -20,7 +36,30 @@ public class App {
         bank.addCustomer(c2);
         bank.addCustomer(c3);
 
-        BankApplication bankApplication = new BankApplication(bank);
-        bankApplication.start();
+        /*Map<Integer, Operation> map = new HashMap<>();
+        map.put(UserOptions.GET_BALANCE.getOption(), new BalanceController());
+        map.put(UserOptions.DEPOSIT.getOption(), new DepositController());
+        map.put(UserOptions.WITHDRAW.getOption(), new WithdrawController());
+        map.put(UserOptions.OPEN_ACCOUNT.getOption(), new OpenAccountController());*/
+
+
+        LoginController loginController = new LoginController(bank);
+        LoginView loginView = new LoginView();
+        MenuController menuController = new MenuController();
+        MenuView menuView = new MenuView();
+
+
+        loginView.setLoginController(loginController);
+        loginView.setBank(bank);
+        loginView.show();
+        //loginController.setView(menuView);
+        //loginController.init();
+        menuView.setMenuController(menuController);
+        menuView.show();
+
+
+
+        //BankApplication bankApplication = new BankApplication(bank);
+        //bankApplication.start();
     }
 }

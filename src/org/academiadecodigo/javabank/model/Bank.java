@@ -3,6 +3,7 @@ package org.academiadecodigo.javabank.model;
 import org.academiadecodigo.javabank.operations.managers.AccountManager;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class Bank {
@@ -41,6 +42,7 @@ public class Bank {
     public void setAccountManager(AccountManager accountManager) {
         this.accountManager = accountManager;
     }
+
 
     public AccountManager getAccountManager() {
         return accountManager;
