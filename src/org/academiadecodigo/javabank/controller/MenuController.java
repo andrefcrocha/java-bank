@@ -13,6 +13,19 @@ public class MenuController implements Controller {
 
     }
 
+        /* private Map<Integer, Operation> buildOperationsMap() {
+
+            Map<Integer, Operation> map = new HashMap<>();
+            map.put(UserOptions.GET_BALANCE.getOption(), new BalanceController());
+            map.put(UserOptions.DEPOSIT.getOption(), );
+            map.put(UserOptions.WITHDRAW.getOption(), ;
+            map.put(UserOptions.OPEN_ACCOUNT.getOption(), ;
+
+            return map;
+
+        }*/
+
+
     public void setView(View view) {
         this.view = view;
     }

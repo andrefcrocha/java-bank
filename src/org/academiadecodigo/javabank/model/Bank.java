@@ -20,11 +20,18 @@ public class Bank {
         customer.setAccountManager(accountManager);
     }
 
-    public Customer getCustomer(int id) {
+    public Customer getCustomerById(int id) {
         return customers.get(id);
     }
 
-    public Set<Integer> getCustomerIds() {
+    /*public void setActiveCustomer(int id){
+        if(this.customers.containsKey(id)){
+            getCustomerById(id);
+        }
+
+    }*/
+
+    public Set<Integer> getAllCustomerIds() {
         return customers.keySet();
     }
 

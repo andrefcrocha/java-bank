@@ -9,23 +9,35 @@ public class LoginController implements Controller {
 
     private Bank bank;
     private View view;
+    private Customer customer;
 
-    public LoginController(Bank bank){
-        this.bank = bank;
+    private Controller menuController;
+
+
+    public void setCustomer(int id) {
+        this.customer = bank.getCustomerById(id);
     }
 
-    public void setCustomerId(int customerId){
-        bank.getCustomer(customerId);
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public void setView(View view) {
         this.view = view;
     }
 
-    @Override
-    public void init() {
-        view.show();
+    public void setMenuController(Controller menuController) {
+        this.menuController = menuController;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 
 
+    @Override
+    public void init() {
+        //view.show();
+        menuController.init();
+    }
 }

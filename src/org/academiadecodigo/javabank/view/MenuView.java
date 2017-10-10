@@ -15,6 +15,7 @@ public class MenuView implements View {
         mainMenu.setMessage(Messages.MENU_WELCOME);
         return mainMenu;
 
+
     }
 
     public void setMenuController(MenuController menuController) {

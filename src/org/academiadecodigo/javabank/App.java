@@ -42,20 +42,19 @@ public class App {
         map.put(UserOptions.WITHDRAW.getOption(), new WithdrawController());
         map.put(UserOptions.OPEN_ACCOUNT.getOption(), new OpenAccountController());*/
 
-
-        LoginController loginController = new LoginController(bank);
+        LoginController loginController = new LoginController();
         LoginView loginView = new LoginView();
         MenuController menuController = new MenuController();
         MenuView menuView = new MenuView();
 
-
         loginView.setLoginController(loginController);
         loginView.setBank(bank);
         loginView.show();
-        //loginController.setView(menuView);
-        //loginController.init();
+        loginController.setView(menuView);
         menuView.setMenuController(menuController);
+        menuView.buildMainMenu();
         menuView.show();
+
 
 
 

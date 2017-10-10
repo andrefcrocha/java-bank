@@ -18,7 +18,7 @@ public class LoginView implements View {
 
     public int scanCustomerId() {
 
-        IntegerSetInputScanner scanner = new IntegerSetInputScanner(bank.getCustomerIds());
+        IntegerSetInputScanner scanner = new IntegerSetInputScanner(bank.getAllCustomerIds());
         scanner.setMessage(Messages.CHOOSE_CUSTOMER);
         scanner.setError(Messages.ERROR_INVALID_CUSTOMER);
         return prompt.getUserInput(scanner);
@@ -34,6 +34,7 @@ public class LoginView implements View {
 
     @Override
     public void show() {
-        loginController.setCustomerId(scanCustomerId());
+        loginController.setCustomer(scanCustomerId());
+        loginController.init();
     }
 }
