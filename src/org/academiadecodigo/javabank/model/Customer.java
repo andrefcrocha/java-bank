@@ -1,8 +1,6 @@
 package org.academiadecodigo.javabank.model;
 
 import org.academiadecodigo.javabank.model.account.Account;
-import org.academiadecodigo.javabank.model.account.AccountType;
-
 import java.util.*;
 
 public class Customer {
@@ -17,8 +15,9 @@ public class Customer {
         this.name = name;
     }
 
-    public void addAccount(Account account) {
-        accounts.put(account.getId(), account);
+
+     public Map<Integer, Account> getAccountMap() {
+        return accounts;
     }
 
     public Set<Account> getAccounts() {

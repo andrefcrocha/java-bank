@@ -1,26 +1,28 @@
 package org.academiadecodigo.javabank.controller;
 
-import org.academiadecodigo.javabank.model.Bank;
+import org.academiadecodigo.javabank.model.Customer;
+import org.academiadecodigo.javabank.model.service.CustomerService;
 import org.academiadecodigo.javabank.model.account.Account;
 import org.academiadecodigo.javabank.model.account.AccountType;
 
 public class NewAccountController extends AbstractController {
 
-    private Bank bank;
+    private CustomerService customerService;
     private Integer newAccountId;
 
     @Override
     public void init() {
 
         newAccountId = createAccount();
+
         super.init();
     }
 
     private int createAccount() {
 
-        Account newAccount = bank.getAccountManager().openAccount(AccountType.CHECKING);
-        bank.getLoginCustomer().addAccount(newAccount);
-
+        Account newAccount = customerService.getAccountService().openAccount(AccountType.CHECKING);
+      //  customerService.getLoginCustomer().getAccountMap().put(newAccountId, newAccount);
+        customerService.addAccount(newAccount);
         return newAccount.getId();
     }
 
@@ -28,8 +30,8 @@ public class NewAccountController extends AbstractController {
         return newAccountId;
     }
 
-    public void setBank(Bank bank) {
-        this.bank = bank;
+    public void setCustomerService(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
 }
