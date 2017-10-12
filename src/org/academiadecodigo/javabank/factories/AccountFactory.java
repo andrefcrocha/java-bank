@@ -1,7 +1,12 @@
 package org.academiadecodigo.javabank.factories;
 
+<<<<<<< HEAD
 import org.academiadecodigo.javabank.model.account.*;
 import org.academiadecodigo.javabank.model.account.CheckingAccount;
+=======
+import org.academiadecodigo.javabank.domain.account.*;
+import org.academiadecodigo.javabank.domain.account.CheckingAccount;
+>>>>>>> 4613278b5a80940ea4a6d11598a61558e591800d
 
 public class AccountFactory {
 

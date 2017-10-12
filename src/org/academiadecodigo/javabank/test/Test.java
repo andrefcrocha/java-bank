@@ -32,11 +32,19 @@ public class Test {
 
     private void testAccountManager() {
         AccountManagerTest accountManagerTest = new AccountManagerTest();
+<<<<<<< HEAD
         System.out.println("AccountService: " + Test.getResult(accountManagerTest.test()));
+=======
+        System.out.println("AccountManager: " + Test.getResult(accountManagerTest.test()));
+>>>>>>> 4613278b5a80940ea4a6d11598a61558e591800d
     }
 
     private void testBank() {
         BankTest bankTest = new BankTest();
+<<<<<<< HEAD
         System.out.println("CustomerService: " + Test.getResult(bankTest.test()));
+=======
+        System.out.println("Bank: " + Test.getResult(bankTest.test()));
+>>>>>>> 4613278b5a80940ea4a6d11598a61558e591800d
     }
 }

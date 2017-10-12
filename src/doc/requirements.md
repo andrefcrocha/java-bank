@@ -64,6 +64,7 @@ Represents a Bank Account, contains money
 * Composition and delegation used with AccountManager containing and performing all account related operations (less responsibility to customer)
 * Account and Customer objects are stored in Map container for quick and convenient access
 * AccountFactory decouples Account usage from Account creation logic
+<<<<<<< HEAD
 * Strategy pattern used for executing multiple customerService operations and account transaction operations
 * Console based user interface implemented using the propmt-view lib
 * MVC architecture 
@@ -73,3 +74,7 @@ In classic MVC the Model notifies the view for changes, but it is also correct t
 have the view reading the model, either directly or indirectly via the controller.
 What can not happen is for the view to update the model directly. 
 Model updates must always be done via the controller.
+=======
+* Strategy pattern used for executing multiple bank operations and account transaction operations
+* Console based user interface implemented using the propmt-view lib
+>>>>>>> 4613278b5a80940ea4a6d11598a61558e591800d
