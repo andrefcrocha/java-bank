@@ -1,13 +1,20 @@
 package org.academiadecodigo.javabank.model;
 
 import org.academiadecodigo.javabank.model.account.Account;
+<<<<<<< HEAD
 import java.util.*;
+=======
 
-public class Customer {
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> bfad24a2754f00d2ae3eeb9f386c883238ddc5ae
 
-    private int id;
+public class Customer extends AbstractModel {
+
     private String name;
+    private List<Account> accounts = new ArrayList<>();
 
+<<<<<<< HEAD
     private Map<Integer, Account> accounts = new HashMap<>();
 
     public Customer(int id, String name) {
@@ -22,33 +29,28 @@ public class Customer {
 
     public Set<Account> getAccounts() {
         return new HashSet<>(accounts.values());
-    }
-
-    public double getBalance(int id) {
-        return accounts.get(id).getBalance();
-    }
-
-    public double getBalance() {
-
-        double balance = 0;
-        for (Account account : accounts.values()) {
-            balance += account.getBalance();
-        }
-
-        return balance;
-    }
-
-    public Set<Integer> getAccountIds() {
-        return accounts.keySet();
-    }
-
-    public int getId() {
-        return id;
-    }
-
+=======
     public String getName() {
         return name;
+>>>>>>> bfad24a2754f00d2ae3eeb9f386c883238ddc5ae
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void addAccount(Account account) {
+        accounts.add(account);
+    }
+
+    public void removeAccount(Account account) {
+        accounts.remove(account);
+    }
+
 }
 
 

@@ -6,9 +6,9 @@ public class Test {
 
         Test test = new Test();
         test.testAccount();
-        test.testCustomer();
-        test.testAccountManager();
-        test.testBank();
+        test.testAuthService();
+        test.testCustomerService();
+        test.testAccountService();
 
     }
 
@@ -25,11 +25,14 @@ public class Test {
 
     }
 
-    private void testCustomer() {
-        CustomerTest customerTest = new CustomerTest();
-        System.out.println("Customer: " + Test.getResult(customerTest.test()));
+    private void testAuthService() {
+
+        AuthServiceTest authServiceTest = new AuthServiceTest();
+        System.out.println("AuthService: " + Test.getResult(authServiceTest.test()));
+
     }
 
+<<<<<<< HEAD
     private void testAccountManager() {
         AccountManagerTest accountManagerTest = new AccountManagerTest();
 <<<<<<< HEAD
@@ -46,5 +49,15 @@ public class Test {
 =======
         System.out.println("Bank: " + Test.getResult(bankTest.test()));
 >>>>>>> 4613278b5a80940ea4a6d11598a61558e591800d
+=======
+    private void testCustomerService() {
+        CustomerServiceTest customerServiceTest = new CustomerServiceTest();
+        System.out.println("Customer: " + Test.getResult(customerServiceTest.test()));
+    }
+
+    private void testAccountService() {
+        AccountServiceTest accountServiceTest = new AccountServiceTest();
+        System.out.println("AccountService: " + Test.getResult(accountServiceTest.test()));
+>>>>>>> bfad24a2754f00d2ae3eeb9f386c883238ddc5ae
     }
 }
