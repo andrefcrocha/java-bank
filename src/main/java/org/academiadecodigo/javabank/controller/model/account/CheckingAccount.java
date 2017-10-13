@@ -1,6 +1,9 @@
 package org.academiadecodigo.javabank.controller.model.account;
 
-public class CheckingAccount extends AbstractAccount {
+import javax.persistence.Entity;
+
+@Entity
+public class CheckingAccount extends Account {
 
     @Override
     public AccountType getAccountType() {

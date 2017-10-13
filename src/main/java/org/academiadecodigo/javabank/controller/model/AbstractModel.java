@@ -1,7 +1,13 @@
 package org.academiadecodigo.javabank.controller.model;
 
+import javax.persistence.*;
+
+
+@MappedSuperclass
 public class AbstractModel implements Model {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Override
