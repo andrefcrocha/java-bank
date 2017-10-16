@@ -38,6 +38,7 @@ public class Customer extends AbstractModel {
 
     public void addAccount(Account account) {
         accounts.add(account);
+        account.setCustomer(this);
     }
 
     public void removeAccount(Account account) {

@@ -6,6 +6,8 @@ import org.academiadecodigo.javabank.controller.model.account.SavingsAccount;
 import org.academiadecodigo.javabank.controller.services.AccountService;
 import org.academiadecodigo.javabank.controller.services.AccountServiceImpl;
 
+import javax.persistence.EntityManagerFactory;
+
 public class AccountServiceTest {
 
     public boolean test() {

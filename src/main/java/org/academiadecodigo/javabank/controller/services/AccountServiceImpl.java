@@ -11,13 +11,19 @@ public class AccountServiceImpl implements AccountService {
 
     private Map<Integer, Account> accountMap = new HashMap<>();
 
-    public void add(Account account) {
+    public void setAuthService(AuthService authService) {
+        this.authService = authService;
+    }
+
+    private AuthService authService;
+
+    public Account add(Account account) {
 
         if (account.getId() == null) {
             account.setId(getNextId());
         }
 
-        accountMap.put(account.getId(), account);
+        return accountMap.put(account.getId(), account);
     }
 
     public void deposit(int id, double amount) {

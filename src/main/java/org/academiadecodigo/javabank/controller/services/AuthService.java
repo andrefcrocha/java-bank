@@ -8,4 +8,6 @@ public interface AuthService {
 
     Customer getAccessingCustomer();
 
+    void setCustomerService(CustomerService customerService);
+
 }

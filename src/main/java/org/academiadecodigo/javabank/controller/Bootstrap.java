@@ -5,20 +5,20 @@ import org.academiadecodigo.javabank.controller.controller.*;
 import org.academiadecodigo.javabank.controller.controller.transaction.DepositController;
 import org.academiadecodigo.javabank.controller.controller.transaction.WithdrawalController;
 import org.academiadecodigo.javabank.controller.factories.AccountFactory;
-import org.academiadecodigo.javabank.controller.services.AccountServiceImpl;
-import org.academiadecodigo.javabank.controller.services.AuthServiceImpl;
+import org.academiadecodigo.javabank.controller.services.*;
+import org.academiadecodigo.javabank.controller.services.servicebd.AccountServiceBD;
+import org.academiadecodigo.javabank.controller.services.servicebd.CustomerServiceBD;
 import org.academiadecodigo.javabank.controller.view.*;
 import org.academiadecodigo.javabank.controller.model.Customer;
-import org.academiadecodigo.javabank.controller.services.CustomerServiceImpl;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Bootstrap {
 
-    private AuthServiceImpl authService;
-    private CustomerServiceImpl customerService;
-    private AccountServiceImpl accountService;
+    private AuthService authService;
+    private CustomerService customerService;
+    private AccountService accountService;
 
     public void loadCustomers() {
 
@@ -50,6 +50,7 @@ public class Bootstrap {
         loginView.setLoginController(loginController);
         loginView.setPrompt(prompt);
 
+        ;
         // wire main controller and view
         MainController mainController = new MainController();
         MainView mainView = new MainView();
@@ -110,11 +111,23 @@ public class Bootstrap {
         this.authService = authService;
     }
 
+    public void setAuthService(AuthService authService) {
+        this.authService = authService;
+    }
+
     public void setCustomerService(CustomerServiceImpl customerService) {
         this.customerService = customerService;
     }
 
+    public void setCustomerService(CustomerServiceBD customerService) {
+        this.customerService = customerService;
+    }
+
     public void setAccountService(AccountServiceImpl accountService) {
+        this.accountService = accountService;
+    }
+
+    public void setAccountService(AccountServiceBD accountService) {
         this.accountService = accountService;
     }
 }

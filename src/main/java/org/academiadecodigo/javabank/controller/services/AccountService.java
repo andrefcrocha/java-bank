@@ -4,7 +4,7 @@ import org.academiadecodigo.javabank.controller.model.account.Account;
 
 public interface AccountService {
 
-    void add(Account account);
+    Account add(Account account);
 
     void deposit(int id, double amount);
 
@@ -12,4 +12,5 @@ public interface AccountService {
 
     void transfer(int srcId, int dstId, double amount);
 
+    void setAuthService(AuthService authService);
 }
