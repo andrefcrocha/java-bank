@@ -4,8 +4,9 @@ import org.academiadecodigo.bootcamp.Prompt;
 import org.academiadecodigo.javabank.controller.*;
 import org.academiadecodigo.javabank.controller.transaction.DepositController;
 import org.academiadecodigo.javabank.controller.transaction.WithdrawalController;
+import org.academiadecodigo.javabank.persistence.manager.SessionManager;
+import org.academiadecodigo.javabank.persistence.manager.TransactionManager;
 import org.academiadecodigo.javabank.factories.AccountFactory;
-import org.academiadecodigo.javabank.model.Customer;
 import org.academiadecodigo.javabank.services.AccountService;
 import org.academiadecodigo.javabank.services.CustomerService;
 import org.academiadecodigo.javabank.services.AuthServiceImpl;
@@ -19,6 +20,8 @@ public class Bootstrap {
     private AuthServiceImpl authService;
     private CustomerService customerService;
     private AccountService accountService;
+    private SessionManager sessionManager;
+    private TransactionManager transactionManager;
 
     public Controller wireObjects() {
 
@@ -87,6 +90,7 @@ public class Bootstrap {
         controllerMap.put(UserOptions.DEPOSIT.getOption(), depositController);
         controllerMap.put(UserOptions.WITHDRAW.getOption(), withdrawalController);
 
+
         mainController.setControllerMap(controllerMap);
 
         return loginController;
@@ -102,5 +106,13 @@ public class Bootstrap {
 
     public void setAccountService(AccountService accountService) {
         this.accountService = accountService;
+    }
+
+    public void setSessionManager(SessionManager sessionManager) {
+        this.sessionManager = sessionManager;
+    }
+
+    public void setTransactionManager(TransactionManager transactionManager) {
+        this.transactionManager = transactionManager;
     }
 }
