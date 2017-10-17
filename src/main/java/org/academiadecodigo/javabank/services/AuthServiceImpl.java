@@ -1,16 +1,17 @@
 package org.academiadecodigo.javabank.services;
 
 import org.academiadecodigo.javabank.model.Customer;
+import org.academiadecodigo.javabank.persistence.doa.jpa.CustomerDao;
 
 public class AuthServiceImpl implements AuthService {
 
     private Integer accessingCustomerId;
-    private CustomerService customerService;
+    private CustomerDao customerDao;
 
     @Override
     public boolean authenticate(Integer id) {
 
-        Customer customer = customerService.findById(id);
+        Customer customer = customerDao.findOne(id);
 
         if (customer == null) {
             return false;
@@ -22,10 +23,10 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Customer getAccessingCustomer() {
-        return customerService.findById(accessingCustomerId);
+        return customerDao.findOne(accessingCustomerId);
     }
 
-    public void setCustomerService(CustomerService customerService) {
-        this.customerService = customerService;
+    public void setCustomerService(CustomerDao customerDao) {
+        this.customerDao = customerDao;
     }
 }

@@ -9,10 +9,6 @@ public class JpaSessionManager implements SessionManager {
     private EntityManagerFactory emf; // the persistence unit
     private EntityManager em; // the persistence context
 
-    public JpaSessionManager(EntityManagerFactory emf) {
-        this.emf = emf;
-    }
-
     public void setEmf(EntityManagerFactory emf) {
         this.emf = emf;
     }

@@ -2,77 +2,76 @@ package org.academiadecodigo.javabank.services.jpa;
 
 import org.academiadecodigo.javabank.model.Customer;
 import org.academiadecodigo.javabank.model.account.Account;
+import org.academiadecodigo.javabank.persistence.doa.jpa.CustomerDao;
+import org.academiadecodigo.javabank.persistence.doa.jpa.JpaGenericDao;
+import org.academiadecodigo.javabank.persistence.manager.JpaTransactionManager;
 import org.academiadecodigo.javabank.services.CustomerService;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class JpaCustomerService extends AbstractJpaService<Customer> implements CustomerService {
+public class JpaCustomerService extends JpaGenericDao<Customer> implements CustomerDao<Customer> {
 
-    public JpaCustomerService(EntityManagerFactory emf) {
-        super(emf, Customer.class);
-    }
+    JpaTransactionManager tm;
+    CustomerDao customerDao;
 
-    @Override
     public double getBalance(Integer id) {
-
-        EntityManager em = emf.createEntityManager();
-
+        double balance = 0;
         try {
+            tm.beginRead();
 
-            Customer customer = em.find(Customer.class, id);
+            Customer customer = customerDao.findOne(id);
 
             if (customer == null) {
+                tm.rollback();
                 throw new IllegalArgumentException("Customer does not exists");
+
             }
 
-            List<Account> accounts = customer.getAccounts();
-
-            double balance = 0;
-            for (Account account : accounts) {
-                balance += account.getBalance();
+            List<Account> accounts = customerDao.getbalance(id);
+            for (Account a : accounts) {
+                balance += a.getBalance();
             }
 
+            tm.commit();
             return balance;
 
-        } finally {
-            if (em != null) {
-                em.close();
-            }
+        } catch (ExceptionWrap ex) {
         }
     }
 
     @Override
-    public Set<Integer> getCustomerAccountIds(Integer id) {
+    public List<Integer> getCustomerAccountIds(Integer id) {
 
-        EntityManager em = emf.createEntityManager();
+        try{
+            tm.beginRead();
 
-        try {
 
-            Set<Integer> accountIds = new HashSet<>();
+           /* public Set<Integer> getCustomerAccountIds(Integer id){
 
-            Customer customer = em.find(Customer.class, id);
+                try {
+                    tm.beginRead();
+                    Set<Integer> accountsIds = new HashSet<>();
+                    Customer customer = customerDao.findOne(id);
 
-            if (customer == null) {
-                throw new IllegalArgumentException("Customer does not exists");
+                    if (customer == null) {
+                        throw new IllegalArgumentException("Customer does not exists");
+                    }
+
+                    List<Account> accounts = customer.getAccounts();
+
+                    for (Account account : accounts) {
+                        accountsIds.add(account.getId());
+                    }
+
+                    return accountsIds;
+
+                }finally {
+                    tm.commit();
+                }
             }
-
-            List<Account> accounts = customer.getAccounts();
-
-            for (Account account : accounts) {
-                accountIds.add(account.getId());
-            }
-
-            return accountIds;
-
-        } finally {
-            if (em != null) {
-                em.close();
-            }
+        }*/
         }
-
     }
 }

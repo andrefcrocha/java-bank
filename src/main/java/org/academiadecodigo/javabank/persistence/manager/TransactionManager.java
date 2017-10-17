@@ -2,13 +2,11 @@ package org.academiadecodigo.javabank.persistence.manager;
 
 public interface TransactionManager {
 
-    public void beginRead();
+    void beginRead();
 
-    public void beginWrite();
+    void beginWrite();
 
-    public void commit();
+    void commit();
 
-    public void rollback();
-
-    public void setSm(SessionManager sm);
+    void rollback();
 }

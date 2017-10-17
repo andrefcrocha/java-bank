@@ -39,7 +39,7 @@ public class App {
     private void bootStrap(EntityManagerFactory emf) {
 
         Bootstrap bootstrap = new Bootstrap();
-        SessionManager sm = new JpaSessionManager(emf);
+        SessionManager sm = new JpaSessionManager();
 
         bootstrap.setAuthService(new AuthServiceImpl());
         bootstrap.setAccountService(new JpaAccountService(emf));
