@@ -26,7 +26,7 @@ public class Messages {
     public final static String MENU_OPEN_ACCOUNT = "Open Account";
     public final static String MENU_DEPOSIT = "Make Deposit";
     public final static String MENU_WITHDRAW = "Make Withdrawal";
-    public final static String MENU_GET_BALANCE = "View Balance";
+    public final static String MENU_GET_BALANCE = "Show Balance";
     public final static String MENU_QUIT = "Quit";
 
 }

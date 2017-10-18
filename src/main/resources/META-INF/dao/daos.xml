@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Enable support for JPA annotations -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<import resource="../SpingDev.xml"/>
+
+
+    <bean id="sessionManager" class="org.academiadecodigo.javabank.persistence.jpa.JpaSessionManager">
+    </bean>
+    <bean id="transactionManager" class="org.academiadecodigo.javabank.persistence.jpa.JpaTransactionManager">
+        <constructor-arg name="sm" ref="sessionManager"/>
+    </bean>
+    <bean id="jpaAccountDao" class="org.academiadecodigo.javabank.persistence.dao.jpa.JpaAccountDao">
+        <constructor-arg name="sm" ref="sessionManager"/>
+    </bean>
+    <bean id="jpaCustomerDao" class="org.academiadecodigo.javabank.persistence.dao.jpa.JpaCustomerDao">
+        <constructor-arg name="sm" ref="sessionManager"/>
+    </bean>
+</beans>

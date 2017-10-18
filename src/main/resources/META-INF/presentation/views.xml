@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Enable support for JPA annotations -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="loginView" class="org.academiadecodigo.javabank.view.LoginView">
+        <property name="loginController" ref="loginController"/>
+        <property name="prompt" ref="prompt"/>
+    </bean>
+
+    <bean id="mainView" class="org.academiadecodigo.javabank.view.MainView">
+        <property name="mainController" ref="mainController"/>
+        <property name="prompt" ref="prompt"/>
+    </bean>
+
+    <bean id="balanceView" class="org.academiadecodigo.javabank.view.BalanceView">
+        <property name="balanceController" ref="balanceController"/>
+    </bean>
+    <bean id="newAccountView" class="org.academiadecodigo.javabank.view.NewAccountView">
+        <property name="newAccountController" ref="newAccountController"/>
+    </bean>
+
+    <bean id="depositView" class="org.academiadecodigo.javabank.view.AccountTransactionView">
+        <property name="prompt" ref="prompt"/>
+        <property name="transactionController" ref="depositController"/>
+    </bean>
+
+    <bean id="withdrawView" class="org.academiadecodigo.javabank.view.AccountTransactionView">
+        <property name="transactionController" ref="withdrawalController"/>
+        <property name="prompt" ref="prompt"/>
+    </bean>
+</beans>
