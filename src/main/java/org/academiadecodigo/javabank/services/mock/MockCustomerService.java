@@ -8,6 +8,8 @@ import java.util.*;
 
 public class MockCustomerService extends AbstractMockService<Customer> implements CustomerService {
 
+
+
     @Override
     public Customer findById(Integer id) {
         return modelMap.get(id);
@@ -25,6 +27,12 @@ public class MockCustomerService extends AbstractMockService<Customer> implement
 
         return balance;
 
+    }
+
+    @Override
+    public List<Customer> getCustomers() {
+        List<Customer> customers = new ArrayList<Customer>(modelMap.values());
+        return customers;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package org.academiadecodigo.javabank.model;
 
 import org.academiadecodigo.javabank.model.account.Account;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,7 +10,42 @@ import java.util.List;
 @Entity
 public class Customer extends AbstractModel {
 
-    private String name;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phoneNumber;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     @OneToMany(
             // propagate changes on customer entity to account entities
@@ -27,13 +63,6 @@ public class Customer extends AbstractModel {
     )
     private List<Account> accounts = new ArrayList<>();
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public List<Account> getAccounts() {
         return accounts;
@@ -52,7 +81,7 @@ public class Customer extends AbstractModel {
     @Override
     public String toString() {
         return "Customer{" +
-                "name='" + name + '\'' +
+                "name='" + firstName + '\'' +
                 ", accounts=" + accounts +
                 "} " + super.toString();
     }
