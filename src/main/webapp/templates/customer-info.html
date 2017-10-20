@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Welcome' + ${customerInfo.firstName}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+<div>
+    <h2>Customer Info:</h2>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <td th:text="${customerInfo.firstName}"></td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td th:text="${customerInfo.lastName}"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td th:text="${customerInfo.email}"></td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td th:text="${customerInfo.phoneNumber}"></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <h2>Accounts:</h2>
+    <table>
+        <tr>
+            <th>#</th>
+            <td>Balance</td>
+        </tr>
+        <tr th:each="account : ${accounts}">
+            <th th:text="${account.id}"></th>
+            <td th:text="${account.balance}"></td>
+        </tr>
+    </table>
+</div>
+
+<div><a href="/ar">Customer List</a></div>
+
+
+</body>
+</html>

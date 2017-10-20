@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public class AccountServiceImpl implements AccountService {
 
     @Autowired
@@ -14,6 +16,11 @@ public class AccountServiceImpl implements AccountService {
 
     public void setAccountDao(AccountDao accountDao) {
         this.accountDao = accountDao;
+    }
+
+    @Override
+    public List<Account> getAccounts(Integer id) {
+        return accountDao.findAll();
     }
 
     @Transactional

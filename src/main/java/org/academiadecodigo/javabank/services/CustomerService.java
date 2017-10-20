@@ -15,4 +15,6 @@ public interface CustomerService {
 
     List<Customer> getCustomers();
 
+    void deleteCustomer(Integer id);
+
 }

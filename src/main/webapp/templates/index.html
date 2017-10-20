@@ -23,8 +23,8 @@
                 <td th:text="${customer.lastName}"></td>
                 <td th:text="${customer.email}"></td>
                 <td th:text="${customer.phoneNumber}"></td>
-                <td> <a href="">Show</a></td>
-                <td> <a href="">Show</a></td>
+                <td> <a th:href="${'/ar/customer-info/'+ customer.id}">Show</a></td>
+                <td> <a th:href="${'/ar/'+ customer.id+'/delete'}">Delete</a></td>
             </tr>
 
         </table>
