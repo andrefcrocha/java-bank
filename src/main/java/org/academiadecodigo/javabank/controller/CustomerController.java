@@ -69,13 +69,13 @@ public class CustomerController {
     @RequestMapping(method = RequestMethod.POST, value = "/save")
     public String postCustomer(@Valid @ModelAttribute("customer") CustomerDTO customerDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes){
 
-        Customer customer = convertDTO.dtotoCustomer(customerDTO);
-        customerService.saveCustomer(customer);
 
         if (bindingResult.hasErrors()) {
             return "customer-edit";
         }
 
+        Customer customer = convertDTO.dtotoCustomer(customerDTO);
+        customerService.saveCustomer(customer);
         redirectAttributes.addFlashAttribute("addTrue", "Updated customer successfully!");
         return "redirect:/";
     }
