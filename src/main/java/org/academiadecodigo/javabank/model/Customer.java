@@ -1,14 +1,13 @@
 package org.academiadecodigo.javabank.model;
 
 import org.academiadecodigo.javabank.model.account.Account;
-import org.springframework.web.bind.annotation.ModelAttribute;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Customer extends AbstractModel {
+
 
     private String firstName;
     private String lastName;

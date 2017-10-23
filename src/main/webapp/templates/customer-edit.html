@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+
+<div>
+    <h2>Customer Info:</h2>
+    <form th:object="${customer}" th:action="@{/save}" method="post" >
+        <input th:type="hidden" th:field="*{id}"/>
+        <input th:type="hidden" th:field="*{version}"/>
+        <table>
+        <tr>
+            <th>First Name</th>
+            <td><input th:type="text" th:field="*{firstName}"/><br>
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+                First Name field error messages
+            </span></td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td><input th:type="text" th:field="*{lastName}"/><br>
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+                Last Name field error messages
+            </span></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input th:type="text" th:field="*{email}"/><br>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                Email field error messages
+            </span></td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td><input th:type="text" th:field="*{phoneNumber}"/><br>
+            <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">
+                Phone Number field error messages
+            </span></td>
+        </tr>
+    </table>
+        <input type="submit"/>
+</form>
+</div>
+
+</body>
+</html>

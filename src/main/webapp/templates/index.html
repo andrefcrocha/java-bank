@@ -5,6 +5,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     </head>
     <body>
+
+    <div>
+        <p th:text="${addTrue}"></p>
+        <p th:text="${deleteTrue}"></p>
+    </div>
+
     <div>
         <h2>Customer List</h2>
         <table>
@@ -14,8 +20,10 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Edit</th>
                 <th>Show</th>
                 <th>Delete</th>
+
             </tr >
             <tr th:each="customer : ${customers}">
                 <td th:text="${customer.id}"></td>
@@ -23,11 +31,15 @@
                 <td th:text="${customer.lastName}"></td>
                 <td th:text="${customer.email}"></td>
                 <td th:text="${customer.phoneNumber}"></td>
+                <td> <a th:href="${'/ar/customer-edit/'+ customer.id}">Edit</a></td>
                 <td> <a th:href="${'/ar/customer-info/'+ customer.id}">Show</a></td>
                 <td> <a th:href="${'/ar/'+ customer.id+'/delete'}">Delete</a></td>
             </tr>
 
         </table>
+    </div>
+    <div>
+        <a th:href="@{/customer-create}">Create Customer</a>
     </div>
 
     </body>

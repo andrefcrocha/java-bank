@@ -8,7 +8,10 @@ import java.util.*;
 
 public class MockCustomerService extends AbstractMockService<Customer> implements CustomerService {
 
-
+    @Override
+    public void saveCustomer(Customer customer) {
+        return;
+    }
 
     @Override
     public Customer findById(Integer id) {
